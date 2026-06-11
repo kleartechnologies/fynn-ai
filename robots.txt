@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fynn-ai.com/sitemap.xml
