@@ -246,9 +246,12 @@
         </div>
       </div>
 
-      <!-- Finn peek -->
-      <div class="hero-finn" aria-hidden="true">
-        <img src="/assets/fynn-listening.png" alt="" width="480" height="480" />
+      <!-- Finn avatar badge -->
+      <div class="hero-finn-badge" aria-hidden="true">
+        <span class="hero-finn-avatar">
+          <img src="/assets/fynn-listening.png" alt="" width="120" height="120" loading="lazy" decoding="async" />
+        </span>
+        <span class="hero-finn-label"><span class="dot"></span> Finn is ready to start</span>
       </div>
     </div>
   </div>
@@ -290,7 +293,6 @@
               <img src="/assets/resume-analysis-screen.jpg" alt="Resume analysis screen" width="720" height="1564" loading="lazy" decoding="async" />
             </div>
           </div>
-          <img class="finn-pose" src="/assets/fynn-resume.png" alt="Finn studying a resume" width="480" height="480" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -298,8 +300,17 @@
         <div class="step-num">Step 02</div>
         <h3>Practice realistic interviews.</h3>
         <p>Speak to Finn like a real interviewer. He listens, asks follow-ups, and pushes you when an answer is too vague.</p>
-        <div class="step-visual">
-          <img class="finn-pose" src="/assets/fynn-listening.png" alt="Finn listening" width="480" height="480" loading="lazy" decoding="async" />
+        <div class="step-visual voice-visual">
+          <div class="voice-card">
+            <div class="voice-row">
+              <span class="voice-dot" aria-hidden="true"></span>
+              <span class="voice-status">Listening…</span>
+            </div>
+            <div class="voice-waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p class="voice-transcript">"Tell me about a time you led a project under pressure."</p>
+          </div>
         </div>
       </div>
 
@@ -313,7 +324,6 @@
               <img src="/assets/feedback-overview-screen.jpg" alt="Feedback overview" width="720" height="1564" loading="lazy" decoding="async" />
             </div>
           </div>
-          <img class="finn-pose" src="/assets/fynn-encouraging.png" alt="Finn encouraging" width="480" height="480" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -327,7 +337,6 @@
               <img src="/assets/home-screen.jpg" alt="Home screen with daily plan and readiness score" width="720" height="1564" loading="lazy" decoding="async" />
             </div>
           </div>
-          <img class="finn-pose" src="/assets/fynn-celebrating.png" alt="Finn celebrating" width="480" height="480" loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -338,13 +347,10 @@
 <!-- ═══════════════════════════════ FEATURE SHOWCASE ═══════════════════════════════ -->
 <section id="features">
   <div class="wrap">
-    <div class="sec-head reveal sec-head-finn">
-      <div>
-        <span class="eyebrow"><span class="dot"></span> Inside the app</span>
-        <h2>Everything you need to <span class="serif accent">walk in ready</span>.</h2>
-        <p>A complete coaching loop — built around the way real interviews actually feel.</p>
-      </div>
-      <img class="sec-finn" src="/assets/fynn-interviewing.png" alt="" aria-hidden="true" width="480" height="480" loading="lazy" decoding="async" />
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Inside the app</span>
+      <h2>Everything you need to <span class="serif accent">walk in ready</span>.</h2>
+      <p>A complete coaching loop — built around the way real interviews actually feel.</p>
     </div>
 
     <div class="feature-grid">
@@ -457,8 +463,6 @@
             <img src="/assets/resume-analysis-screen.jpg" alt="Resume analysis screen" width="720" height="1564" loading="lazy" decoding="async" />
           </div>
         </div>
-        <img class="finn-side right" src="/assets/fynn-resume.png" alt="" aria-hidden="true" width="480" height="480" loading="lazy" decoding="async" />
-
         <div class="float-pill" style="top:14%; left:-2%;">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
           92% match
@@ -559,7 +563,6 @@
             <img src="/assets/progress-screen.jpg" alt="Progress screen — readiness score and streaks" width="720" height="1564" loading="lazy" decoding="async" />
           </div>
         </div>
-        <img class="finn-celebrate" src="/assets/fynn-celebrating.png" alt="Finn celebrating" width="480" height="480" loading="lazy" decoding="async" />
         <div class="streak-card">
           <div class="flame">🔥</div>
           <div>
@@ -625,7 +628,12 @@
             </div>
           </div>
         </div>
-        <img class="finn-fb" src="/assets/fynn-advice.png" alt="" aria-hidden="true" width="480" height="480" loading="lazy" decoding="async" />
+        <div class="coach-tip" aria-hidden="true">
+          <span class="coach-avatar">
+            <img src="/assets/fynn-advice.png" alt="" width="96" height="96" loading="lazy" decoding="async" />
+          </span>
+          <div class="coach-bubble"><strong>Finn's tip:</strong> Lead with the result, then walk back through how you got there.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -895,7 +903,20 @@
 
       <div class="final-stage reveal delay-1">
         <div class="final-halo" aria-hidden="true"></div>
-        <img class="finn-waving" src="/assets/fynn-waving.png" alt="Finn waving" width="840" height="840" loading="lazy" decoding="async" />
+        <div class="phone-shell">
+          <div class="phone-screen">
+            <img src="/assets/interview-setup-screen.jpg" alt="Interview setup screen — choose your role and start practicing" width="720" height="1564" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="float-card fc-readiness" aria-hidden="true">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <div class="k">Readiness</div>
+            <div class="v"><span class="counter" data-to="94">0</span><span style="font-size:12px; color:var(--mute); font-weight:500;">/100</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -381,14 +381,31 @@ section{ position:relative; padding:80px 0; }
 .fc-resume .ic{ background:rgba(110,84,226,.12); color:var(--purple); }
 .fc-confidence .ic{ background:rgba(255,106,26,.14); color:var(--finn-deep); }
 
-/* Finn listening in hero — peeking */
-.hero-finn{
-  position:absolute; bottom:-12px; right:-20px; z-index:4;
-  width:clamp(120px, 18vw, 200px);
+/* Finn avatar badge — small supporting presence in hero */
+.hero-finn-badge{
+  position:absolute; bottom:20px; right:-14px; z-index:4;
+  display:flex; align-items:center; gap:10px;
+  background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:8px 16px 8px 8px;
+  box-shadow:var(--shadow-lg);
   animation:bob 5s ease-in-out infinite;
 }
-@media (max-width:1024px){ .hero-finn{ display:none; } }
-.hero-finn img{ width:100%; filter:drop-shadow(0 16px 30px rgba(26,20,16,.18)); }
+@media (max-width:1024px){ .hero-finn-badge{ display:none; } }
+.hero-finn-avatar{
+  width:40px; height:40px; border-radius:50%; overflow:hidden;
+  flex-shrink:0; background:var(--cream-deep);
+}
+.hero-finn-avatar img{
+  width:100%; height:100%; object-fit:cover; object-position:50% 18%; transform:scale(1.7);
+}
+.hero-finn-label{
+  font-size:13px; font-weight:600; color:var(--ink); white-space:nowrap;
+  display:inline-flex; align-items:center; gap:7px;
+}
+.hero-finn-label .dot{
+  width:8px; height:8px; border-radius:50%; background:var(--green);
+  box-shadow:0 0 0 3px rgba(31,157,85,.15);
+}
 
 
 /* ─────────────────────────────────────────
@@ -467,14 +484,10 @@ section{ position:relative; padding:80px 0; }
   content:""; position:absolute; inset:0;
   background:radial-gradient(60% 50% at 50% 80%, rgba(255,106,26,0.18) 0%, transparent 65%);
 }
-.step-visual .finn-pose{
-  position:absolute; bottom:-8px; right:-12px;
-  width:60%; z-index:1;
-  filter:drop-shadow(0 10px 20px rgba(26,20,16,.12));
-}
 .step-visual .mini-phone{
-  position:absolute; left:14px; bottom:14px; top:14px;
-  width:42%;
+  position:absolute; left:50%; bottom:14px; top:14px;
+  transform:translateX(-50%);
+  width:48%;
   border-radius:18px; background:#0b0808; padding:4px;
   box-shadow:var(--shadow-md);
   z-index:2;
@@ -484,10 +497,50 @@ section{ position:relative; padding:80px 0; }
 }
 .step-visual .mini-phone-screen img{ width:100%; height:100%; object-fit:cover; object-position:top; }
 
-/* Step 2 (interview) — listening finn at front */
-.step-2 .step-visual .finn-pose{ right:50%; transform:translateX(50%); width:55%; bottom:-12px; }
-.step-2 .step-visual .mini-phone{ display:none; }
+/* Step 2 (interview) — voice indicator, no mascot */
 .step-2 .step-visual{ background:linear-gradient(180deg, #FCE3D1 0%, var(--cream-deep) 100%); }
+.voice-card{
+  position:relative; z-index:2;
+  width:84%; max-width:320px;
+  background:#fff; border-radius:var(--r-lg);
+  padding:18px 20px;
+  box-shadow:var(--shadow-lg);
+  display:flex; flex-direction:column; gap:14px;
+  margin-bottom:20px;
+}
+.voice-row{ display:flex; align-items:center; gap:8px; }
+.voice-dot{
+  width:9px; height:9px; border-radius:50%; background:var(--red);
+  box-shadow:0 0 0 4px rgba(229,78,0,.12);
+  animation:pulseDot 1.6s ease-in-out infinite;
+}
+@keyframes pulseDot{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+.voice-status{
+  font-family:var(--font-mono); font-size:11.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--mute); font-weight:600;
+}
+.voice-waveform{
+  display:flex; align-items:center; gap:4px; height:32px;
+}
+.voice-waveform span{
+  flex:1; height:30%; min-height:6px; border-radius:3px;
+  background:linear-gradient(180deg, var(--finn) 0%, var(--finn-deep) 100%);
+  animation:waveform 1.2s ease-in-out infinite;
+}
+.voice-waveform span:nth-child(1){ animation-delay:-1.1s; }
+.voice-waveform span:nth-child(2){ animation-delay:-0.9s; }
+.voice-waveform span:nth-child(3){ animation-delay:-0.7s; }
+.voice-waveform span:nth-child(4){ animation-delay:-0.5s; }
+.voice-waveform span:nth-child(5){ animation-delay:-0.3s; }
+.voice-waveform span:nth-child(6){ animation-delay:-0.5s; }
+.voice-waveform span:nth-child(7){ animation-delay:-0.7s; }
+.voice-waveform span:nth-child(8){ animation-delay:-0.9s; }
+.voice-waveform span:nth-child(9){ animation-delay:-1.1s; }
+@keyframes waveform{ 0%,100%{ height:25%; } 50%{ height:100%; } }
+.voice-transcript{
+  margin:0; font-size:13.5px; line-height:1.5; color:var(--ink-2);
+  font-style:italic;
+}
 
 .step-3 .step-visual{ background:linear-gradient(180deg, #FFD7B8 0%, #FFE8D2 100%); }
 .step-4 .step-visual{ background:linear-gradient(180deg, #F4E8FF 0%, var(--cream-deep) 100%); }
@@ -533,14 +586,6 @@ section{ position:relative; padding:80px 0; }
   filter:blur(40px);
 }
 .split-stage .phone-shell{ width:clamp(260px, 28vw, 320px); }
-.split-stage .finn-side{
-  position:absolute; z-index:3;
-  width:clamp(120px, 16vw, 180px);
-  filter:drop-shadow(0 16px 28px rgba(26,20,16,.16));
-  animation:bob 5.5s ease-in-out infinite;
-}
-.split-stage .finn-side.left{ left:-4%; bottom:8%; }
-.split-stage .finn-side.right{ right:-4%; top:14%; }
 
 .split-stage .float-pill{
   position:absolute;
@@ -685,13 +730,6 @@ section{ position:relative; padding:80px 0; }
   filter:blur(70px);
 }
 .progress-stage .phone-shell{ width:clamp(260px, 30vw, 340px); position:relative; z-index:2; }
-.progress-stage .finn-celebrate{
-  position:absolute; bottom:0; right:-2%;
-  width:clamp(140px, 18vw, 200px); z-index:3;
-  filter:drop-shadow(0 20px 40px rgba(229,78,0,.35));
-  animation:wave 2.4s ease-in-out infinite;
-}
-@keyframes wave{ 0%,100%{ transform:rotate(-2deg) translateY(0); } 50%{ transform:rotate(2deg) translateY(-8px); } }
 .progress-stage .streak-card{
   position:absolute; left:0; top:14%;
   background:#fff; color:var(--ink);
@@ -709,7 +747,6 @@ section{ position:relative; padding:80px 0; }
 @media (max-width:980px){ .progress-stage{ min-height:540px; } }
 @media (max-width:560px){
   .progress-stage .streak-card{ left:-8px; padding:10px 12px; }
-  .progress-stage .finn-celebrate{ right:-12px; }
 }
 
 /* ─────────────────────────────────────────
@@ -763,12 +800,28 @@ section{ position:relative; padding:80px 0; }
 .fb-stage .phone-shell{ width:clamp(260px, 28vw, 320px); }
 .fb-screen{ position:absolute; inset:0; opacity:0; transition:opacity .35s ease; }
 .fb-screen.active{ opacity:1; position:relative; }
-.fb-stage .finn-fb{
-  position:absolute; right:-6%; bottom:0; z-index:3;
-  width:clamp(110px, 14vw, 160px);
-  filter:drop-shadow(0 16px 24px rgba(26,20,16,.18));
+.fb-stage .coach-tip{
+  position:absolute; right:-4%; bottom:6%; z-index:3;
+  display:flex; align-items:flex-end; gap:10px;
+  max-width:230px;
   animation:bob 5s ease-in-out infinite;
 }
+.coach-avatar{
+  width:46px; height:46px; border-radius:50%; overflow:hidden;
+  flex-shrink:0; background:var(--cream-deep);
+  box-shadow:var(--shadow-md);
+}
+.coach-avatar img{
+  width:100%; height:100%; object-fit:cover; object-position:50% 18%; transform:scale(1.7);
+}
+.coach-bubble{
+  background:#fff; border-radius:14px 14px 14px 4px;
+  padding:12px 14px;
+  font-size:13px; line-height:1.45; color:var(--ink-2);
+  box-shadow:var(--shadow-lg);
+}
+.coach-bubble strong{ color:var(--finn-deep); }
+@media (max-width:680px){ .fb-stage .coach-tip{ display:none; } }
 
 /* ─────────────────────────────────────────
    TESTIMONIALS
@@ -895,12 +948,6 @@ section{ position:relative; padding:80px 0; }
   background:radial-gradient(circle, rgba(255,106,26,0.55) 0%, transparent 60%);
   filter:blur(80px);
 }
-.finn-waving{
-  position:relative; z-index:2;
-  width:clamp(260px, 34vw, 420px);
-  filter:drop-shadow(0 30px 50px rgba(229,78,0,.35));
-  animation:wave 2.4s ease-in-out infinite;
-}
 
 /* ─────────────────────────────────────────
    FOOTER
@@ -948,16 +995,6 @@ footer{
 /* ─────────────────────────────────────────
    FEATURE SHOWCASE (6-card grid)
    ───────────────────────────────────────── */
-.sec-head-finn{
-  display:flex; align-items:flex-end; justify-content:space-between; gap:32px;
-}
-.sec-finn{
-  display:none;
-  flex-shrink:0; width:140px;
-  filter:drop-shadow(0 14px 26px rgba(26,20,16,.14));
-  animation:bob 6s ease-in-out infinite;
-}
-@media (min-width:880px){ .sec-finn{ display:block; } }
 
 .feature-grid{
   display:grid; grid-template-columns:1fr; gap:24px;
