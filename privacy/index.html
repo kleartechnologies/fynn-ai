@@ -79,9 +79,9 @@
     <h1>Privacy Policy.</h1>
     <p class="lede">How Fynn AI collects, uses, and protects your information — written plainly, without legalese where we can avoid it.</p>
     <div class="meta">
-      <div><span>Last updated </span><strong>June 1, 2026</strong></div>
-      <div><span>Effective </span><strong>June 1, 2026</strong></div>
-      <div><span>Version </span><strong>2.0</strong></div>
+      <div><span>Last updated </span><strong>June 28, 2026</strong></div>
+      <div><span>Effective </span><strong>June 28, 2026</strong></div>
+      <div><span>Version </span><strong>2.1</strong></div>
     </div>
   </div>
 </section>
@@ -105,6 +105,7 @@
           <li><a href="#transcripts">Transcripts</a></li>
           <li><a href="#usage-analytics">Usage Analytics</a></li>
           <li><a href="#device-information">Device Information</a></li>
+          <li><a href="#advertising-attribution">Advertising &amp; Attribution</a></li>
           <li><a href="#authentication-data">Authentication Data</a></li>
           <li><a href="#cookies">Cookies</a></li>
           <li><a href="#third-party-services">Third-Party Services</a></li>
@@ -184,57 +185,65 @@
 
         <section id="usage-analytics">
           <h2><span class="num">09 — Analytics</span>Usage Analytics.</h2>
-          <p>We collect anonymized product analytics — feature usage, session counts, screen flow, and crash reports — to understand how Fynn AI is used and where it can improve. Analytics events are aggregated and contain no resume or transcript content.</p>
+          <p>We use PostHog to collect product analytics — feature usage, session counts, screen flow, and crash reports — tied to a random account identifier, to understand how Fynn AI is used and where it can improve. Analytics events never include your resume or transcript content, and PostHog data is not used to track you across other companies' apps or websites.</p>
         </section>
 
         <section id="device-information">
           <h2><span class="num">10 — Device</span>Device Information.</h2>
-          <p>We collect basic device information needed for the Service to function correctly: device model, operating system version, app version, locale, time zone, and IP address. We do not collect contacts, photos, location, or other sensitive device data unless you explicitly enable a feature that requires it.</p>
+          <p>We collect basic device information needed for the Service to function correctly: device model, operating system version, app version, locale, time zone, and IP address. On iOS, with your permission via App Tracking Transparency, we also access your device's advertising identifier (IDFA) for advertising attribution — see <a href="#advertising-attribution">Advertising &amp; Attribution</a> below. We do not collect contacts, photos, location, or other sensitive device data unless you explicitly enable a feature that requires it.</p>
+        </section>
+
+        <section id="advertising-attribution">
+          <h2><span class="num">11 — Advertising</span>Advertising &amp; Attribution.</h2>
+          <p>To understand which marketing efforts bring new users to Fynn and to measure how well our advertising performs, we use Meta's App Events SDK. When you reach certain milestones — creating an account, uploading a resume, analyzing a job, starting an interview, starting a free trial, or purchasing a subscription — we send the event name to Meta, plus the amount and currency for purchases. We <strong>never</strong> send your name, email, resume, interview answers, scores, or any interview content to Meta.</p>
+          <p>On iOS, this attribution is linked to your device's advertising identifier (IDFA) <strong>only if you allow tracking</strong> when asked through Apple's App Tracking Transparency prompt. If you choose "Ask App Not to Track," we do not use your advertising identifier, and measurement falls back to Apple's privacy-preserving SKAdNetwork. You can change this choice at any time in <strong>iOS Settings → Privacy &amp; Security → Tracking</strong>. We never sell your personal data or share it with data brokers.</p>
         </section>
 
         <section id="authentication-data">
-          <h2><span class="num">11 — Auth</span>Authentication Data.</h2>
+          <h2><span class="num">12 — Auth</span>Authentication Data.</h2>
           <p>If you sign in with Apple, Google, or another OAuth provider, we receive a unique identifier and your verified email address. We do not receive your password from these providers.</p>
         </section>
 
         <section id="cookies">
-          <h2><span class="num">12 — Cookies</span>Cookies and Similar Technologies.</h2>
+          <h2><span class="num">13 — Cookies</span>Cookies and Similar Technologies.</h2>
           <p>The Fynn AI website uses a small number of essential cookies for authentication and security, and one analytics cookie for aggregate usage measurement. You may disable non-essential cookies in your browser; doing so will not prevent you from using the Service.</p>
         </section>
 
         <section id="third-party-services">
-          <h2><span class="num">13 — Third Parties</span>Third-Party Services.</h2>
+          <h2><span class="num">14 — Third Parties</span>Third-Party Services.</h2>
           <p>We use a small set of carefully selected providers to run the Service:</p>
           <ul>
-            <li><strong>Cloud hosting</strong> — to store your data and run our services.</li>
-            <li><strong>Third-party AI providers (including OpenAI)</strong> — to power live interview conversations, transcribe speech, and generate feedback and scoring. Your microphone audio, spoken answers, interview transcript, and resume content may be sent to these providers solely to generate your interview experience. They process data under their own security and data-handling agreements and do not use your content to train their models on our behalf.</li>
-            <li><strong>Payment processing</strong> — to handle subscriptions, if you upgrade to a paid plan.</li>
-            <li><strong>Analytics and crash reporting</strong> — to maintain product quality.</li>
+            <li><strong>Supabase</strong> — our backend; securely stores your account, profile, resume, interviews, and feedback.</li>
+            <li><strong>OpenAI</strong> — powers live interview conversations, transcribes speech, and generates feedback and scoring. Your microphone audio, spoken answers, interview transcript, and resume content may be sent to OpenAI solely to generate your interview experience. They process data under their own security and data-handling agreements and do not use your content to train their models on our behalf.</li>
+            <li><strong>RevenueCat</strong> — verifies your subscription status from your purchase history (it receives a randomized app-user identifier, not your name, email, resume, or interview content).</li>
+            <li><strong>PostHog</strong> — product analytics and crash/diagnostic reporting (never resume or interview content).</li>
+            <li><strong>Meta</strong> — measures advertising performance and install attribution (event names and purchase amounts only; your device advertising identifier is used only with your App Tracking Transparency permission). See <a href="#advertising-attribution">Advertising &amp; Attribution</a>.</li>
           </ul>
         </section>
 
         <section id="how-we-use-data">
-          <h2><span class="num">14 — Use</span>How We Use Your Data.</h2>
+          <h2><span class="num">15 — Use</span>How We Use Your Data.</h2>
           <p>We use the information we collect to:</p>
           <ul>
             <li>Provide personalized interview coaching, feedback, and readiness scoring.</li>
             <li>Surface evidence-based recommendations tied to your resume and target role.</li>
             <li>Maintain your progress, session history, and account.</li>
             <li>Improve Fynn AI's coaching quality through aggregated, anonymized analysis.</li>
+            <li>Measure the performance of our advertising and user acquisition (see <a href="#advertising-attribution">Advertising &amp; Attribution</a>).</li>
             <li>Communicate with you about your account, security, and product updates.</li>
             <li>Detect and prevent fraud, abuse, or misuse of the Service.</li>
           </ul>
-          <p>We do not use your resume, transcripts, or interview content for advertising, profiling, or any purpose unrelated to providing the Service.</p>
+          <p>We do not use your resume, transcripts, or interview content for advertising or profiling.</p>
         </section>
 
         <section id="data-retention">
-          <h2><span class="num">15 — Retention</span>Data Retention.</h2>
+          <h2><span class="num">16 — Retention</span>Data Retention.</h2>
           <p>We retain your account information and Content for as long as your account is active. If you delete a specific session, recording, or resume, it is removed from your active account and purged from backups within 30 days.</p>
           <p>If you delete your account, all associated data is permanently deleted within 30 days, except where retention is legally required (for example, billing records).</p>
         </section>
 
         <section id="data-security">
-          <h2><span class="num">16 — Security</span>Data Security.</h2>
+          <h2><span class="num">17 — Security</span>Data Security.</h2>
           <p>We protect your data with industry-standard safeguards:</p>
           <ul>
             <li>TLS 1.2+ encryption in transit.</li>
@@ -246,13 +255,13 @@
         </section>
 
         <section id="data-sharing">
-          <h2><span class="num">17 — Sharing</span>Data Sharing.</h2>
-          <p>We do not sell your personal information. We share data only with the third-party processors listed above, or when required by law (such as a valid subpoena or court order).</p>
+          <h2><span class="num">18 — Sharing</span>Data Sharing.</h2>
+          <p>We do not sell your personal information. We share data only with the third-party processors listed above, or when required by law (such as a valid subpoena or court order). With your App Tracking Transparency permission, we share app-event and device-identifier data with Meta to measure advertising performance — never your resume, transcripts, recordings, or interview content.</p>
           <p>We will never share your resume, transcripts, or recordings with employers, recruiters, or other Fynn AI users.</p>
         </section>
 
         <section id="user-rights">
-          <h2><span class="num">18 — Rights</span>Your Rights.</h2>
+          <h2><span class="num">19 — Rights</span>Your Rights.</h2>
           <p>Depending on where you live, you may have the right to:</p>
           <ul>
             <li>Access the personal information we hold about you.</li>
@@ -266,23 +275,23 @@
         </section>
 
         <section id="data-deletion">
-          <h2><span class="num">19 — Deletion</span>Data Deletion.</h2>
+          <h2><span class="num">20 — Deletion</span>Data Deletion.</h2>
           <p>You can permanently delete your Fynn AI account and all associated data at any time. See the <a href="/delete-account/">Delete Account</a> page for step-by-step instructions, or email <a href="mailto:support@fynn-ai.com">support@fynn-ai.com</a> with the subject line <strong>"Account Deletion Request"</strong>.</p>
           <p>Deletion is permanent and cannot be reversed.</p>
         </section>
 
         <section id="childrens-privacy">
-          <h2><span class="num">20 — Children</span>Children's Privacy.</h2>
+          <h2><span class="num">21 — Children</span>Children's Privacy.</h2>
           <p>Fynn AI is not directed to children under 13, and we do not knowingly collect information from anyone under 13. If you believe a child has provided us with personal information, please contact us at <a href="mailto:support@fynn-ai.com">support@fynn-ai.com</a> and we will delete it.</p>
         </section>
 
         <section id="policy-updates">
-          <h2><span class="num">21 — Updates</span>Policy Updates.</h2>
+          <h2><span class="num">22 — Updates</span>Policy Updates.</h2>
           <p>We may update this Privacy Policy as the Service evolves. When we make material changes, we will notify you by email or in-product before the changes take effect. The "Last updated" date at the top of this page always reflects the most recent revision.</p>
         </section>
 
         <section id="contact">
-          <h2><span class="num">22 — Contact</span>Contact.</h2>
+          <h2><span class="num">23 — Contact</span>Contact.</h2>
           <p>Questions, requests, or concerns about this Privacy Policy? Reach our team at <a href="mailto:support@fynn-ai.com">support@fynn-ai.com</a>. We typically respond within 24–48 business hours.</p>
 
           <div class="callout info" style="margin-top:24px;">
